@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <!-- MK 83 -->
+  <model>
+    <name>weaponL0</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/mk-83/mk-83.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m> -1.851 </y-m>
+      <z-m> -1.336 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>weaponR0</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/mk-83/mk-83.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  1.851 </y-m>
+      <z-m> -1.336 </z-m>
+    </offsets>
+  </model>
+
+  <!-- AIM 9 -->  
+  <model>
+    <name>weaponL1</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/rocket127mm/rocket127mm.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m> -2.335 </y-m>
+      <z-m> -1.192 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>weaponL2</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/rocket127mm/rocket127mm.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m> -2.775 </y-m>
+      <z-m> -1.138 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>weaponL3</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/rocket127mm/rocket127mm.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m> -3.196 </y-m>
+      <z-m> -1.098 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>weaponR3</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/rocket127mm/rocket127mm.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  3.196 </y-m>
+      <z-m> -1.098 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>weaponR2</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/rocket127mm/rocket127mm.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  2.775 </y-m>
+      <z-m> -1.138 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <name>weaponR1</name>
+    <path>Aircraft/F9F-Panther/Models/weapons/rocket127mm/rocket127mm.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  2.335 </y-m>
+      <z-m> -1.192 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Wings animations -->
+  <animation>
+    <name>WeaponsLeft</name>
+    <object-name>weaponL0</object-name>
+    <object-name>weaponL1</object-name>
+    <object-name>weaponL2</object-name>
+    <object-name>weaponL3</object-name>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>WeaponsLeft</object-name>
+    <property>sim/model/door-positions/wing/position-norm</property>
+    <factor> -62 </factor>
+    <center>
+      <x-m> -0.08121 </x-m>
+      <y-m> -1.53879 </y-m>
+      <z-m> -0.61931 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <name>WeaponsRight</name>
+    <object-name>weaponR0</object-name>
+    <object-name>weaponR1</object-name>
+    <object-name>weaponR2</object-name>
+    <object-name>weaponR3</object-name>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>WeaponsRight</object-name>
+    <property>sim/model/door-positions/wing/position-norm</property>
+    <factor> 62 </factor>
+    <center>
+      <x-m> -0.08121 </x-m>
+      <y-m>  1.53879 </y-m>
+      <z-m> -0.61931 </z-m>
+    </center>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>

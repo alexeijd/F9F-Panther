@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>ai.ac</path>
+
+  <animation>
+    <object-name>AI.fond</object-name>
+    <object-name>AI.cage</object-name>
+    <object-name>AI.face</object-name>
+    <object-name>AI.face2</object-name>
+    <object-name>AI.knob</object-name>
+    <object-name>Roll.needle</object-name>
+    <object-name>AI.needle</object-name>
+    <object-name>AI.aircraft</object-name>
+
+    <object-name>vitre</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/F9F-Panther/Models/Effects/Glass/glass</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+  
+  <animation>
+    <type>material</type>
+    <object-name>AI.face</object-name>
+    <object-name>AI.face2</object-name>
+    <object-name>AI.cage</object-name>
+    <object-name>Roll.needle</object-name>
+    <object-name>AI.needle</object-name>
+    <object-name>AI.aircraft</object-name>
+    <emission>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AI.needle</object-name>
+    <object-name>Roll.needle</object-name>
+    <property>orientation/roll-deg</property>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>AI.needle</object-name>
+    <property>orientation/pitch-deg</property>
+    <interpolation>
+      <entry><ind> -30 </ind><dep>  0.015 </dep></entry>
+      <entry><ind>   0 </ind><dep>  0.000 </dep></entry>
+      <entry><ind>  30 </ind><dep> -0.015 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>AI.face</object-name>
+    <object-name>AI.face2</object-name>
+    <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+    <factor>0.0075</factor>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>AI.knob</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+        <step>0.1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>AI.knob</object-name>
+    <action>
+      <button>1</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+        <step>-0.1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>AI.knob</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+        <step>0.1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>AI.knob</object-name>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+        <step>-0.1</step>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+</PropertyList>
+

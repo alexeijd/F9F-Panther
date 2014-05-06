@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>interieur</object-name>
+    <object-name>inttour</object-name>
+    <object-name>planchet</object-name>
+    <object-name>inttourverriere</object-name>
+    <object-name>cloison</object-name>
+    
+    <!-- Objets transparents -->
+    <object-name>intverriere</object-name>
+    <object-name>intvitres</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/F9F-Panther/Models/Effects/Glass/glass</inherits-from>
+    <object-name>intverriere</object-name>
+    <object-name>intvitres</object-name>
+  </effect>
+  
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>intverriere</object-name>
+    <object-name>intvitres</object-name>
+  </effect>
+  
+  <!-- Seat -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/seat/seat.xml</path>
+    <offsets>
+      <x-m> -2.17 </x-m>
+      <y-m>  0.00 </y-m>
+      <z-m> -0.15 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Pilote -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Pilot/pilot.xml</path>
+    <offsets>
+      <x-m> -2.13270 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.23489 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Tableau de bord -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -2.73446 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.04599 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Canopy -->
+  <animation>
+    <name>IntCanopyComplete</name>
+    <object-name>inttourverriere</object-name>
+    <object-name>intverriere</object-name>
+  </animation>
+  
+  <animation>
+    <type>pick</type>
+    <object-name>IntCanopyComplete</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>IntCanopyComplete</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.8 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>IntCanopyComplete</object-name>
+    <property>sim/model/door-positions/crew/position-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.00 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.08 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+  
+</PropertyList>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim  include="Systems/views.xml">
+ 
+    <author>Emmanuel BARANGER (3D/FDM)</author>
+    <status>alpha</status>
+  
+    <fuel-fraction>1.0</fuel-fraction>
+  
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/F9F-Panther/Sounds/f9f-sound.xml</path>
+    </sound>
+
+    <startup>
+     <splash-texture>Aircraft/F9F-Panther/f9f-splash.png</splash-texture>
+    </startup>
+
+    <model>
+      <path>Aircraft/F9F-Panther/Models/f9f.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+    </model>
+
+    <submodels> 
+      <serviceable type="bool">true</serviceable>
+      <path>Aircraft/F9F-Panther/Models/Effects/guns/submodels.xml</path>
+    </submodels>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int n="0"    type="int">  0 </int>                                         <!-- 0 immat -->
+        <int n="1"    type="int">  0 </int>                                         <!-- 1 immat -->
+        <int n="2"    type="int">  0 </int>                                         <!-- 2 immat -->
+        <int n="3"    type="int">  0 </int>                                         <!-- 3 immat -->
+        <int n="4"    type="int">  0 </int>                                         <!-- 4 immat -->
+        <int n="5"    type="int">  0 </int>                                         <!-- 5 immat -->
+        <int n="6"    type="bool"> 1 </int>                                         <!-- 6 smoke/bomb/torpedo -->
+        <int n="7"    type="int">  0 </int>                                         <!-- 7 color -->
+        <int n="8"    alias="/systems/electrical/outputs/nav-lights">  0 </int>     <!-- 8 nav-lights -->
+        <int n="9"    alias="/sim/model/lights/beacon/state">  false </int>         <!-- 9 strobe-lights -->
+        <float n="0"  alias="/sim/model/door-positions/crew/position-norm"/>
+        <float n="1"  alias="/sim/model/door-positions/passenger/position-norm"/>
+        <float n="2"  alias="/position/gear-agl-m"> 0 </float>                      <!-- altitude for MP shadow -->
+        <float n="3"  alias="/position/altitude-ft"> 0 </float>                     <!-- altitude for Smoke/Trail -->
+        <float n="4"  alias="/engines/engine[0]/n1"/>
+        <float n="5"  alias="/engines/engine[0]/n2"/>
+        <float n="6"  alias="/gear/gear[0]/wow/"/>
+        <float n="7"  alias="/gear/gear[1]/wow/"/>
+        <float n="8"  alias="/gear/gear[2]/wow/"/>
+        <float n="9"  alias="/gear/gear[0]/rollspeed-ms"/>
+        <float n="10" alias="/gear/gear[1]/rollspeed-ms"/>
+        <float n="11" alias="/gear/gear[2]/rollspeed-ms"/>
+        <float n="12"  alias="/controls/engines/engine[0]/throttle"/>
+        <!-- For Bombable -->
+        <int type="int" n="10" alias="controls/armament/trigger">0</int>
+        <string n="9" type="string" />
+      </generic>
+    </multiplay>
+    
+    <help include="Systems/help.xml"/>
+
+    <menubar include="Dialogs/f9f-menu.xml"/>
+
+  </sim>
+
+  <engines>
+    <engine n="0">
+      <engine-num type="int">0</engine-num>
+      <running>true</running>
+    </engine>
+  </engines>
+
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <tank-num type="int">0</tank-num>
+        <level-gal_us archive="y">2070</level-gal_us>
+      </tank>
+    </fuel>
+  </consumables>
+
+  <controls>
+    <armament>
+      <trigger type="bool">false</trigger>
+      <master-arm type="bool">true</master-arm>
+      <position-norm type="int">1</position-norm>
+    </armament>
+    <gear>
+      <brake-parking>1</brake-parking>
+    </gear>
+  </controls>
+
+  <input>
+    <keyboard include="Systems/f9f-keyboard.xml"/>
+  </input>
+ 
+  <nasal>
+    <doors>
+      <file>Aircraft/F9F-Panther/Nasal/doors.nas</file>
+    </doors>
+    <f9f>
+      <file>Aircraft/F9F-Panther/Nasal/liveries.nas</file>
+      <file>Aircraft/F9F-Panther/Nasal/light.nas</file>
+    </f9f>
+    <guns>
+      <file>Aircraft/F9F-Panther/Nasal/weapons.nas</file>
+      <file>Aircraft/F9F-Panther/Nasal/revi.nas</file>
+    </guns>
+  </nasal>
+
+</PropertyList>
