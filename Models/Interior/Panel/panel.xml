@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>panel.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>panel</object-name>
+
+    <!-- Objets transparents -->
+  </animation>
+
+  <!-- Left side -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Left/left.xml</path>
+    <offsets>
+      <x-m>  0.54394 </x-m>
+      <y-m> -0.35592 </y-m>
+      <z-m> -0.23394 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Right side -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Right/right.xml</path>
+    <offsets>
+      <x-m>  0.54394 </x-m>
+      <y-m>  0.35592 </y-m>
+      <z-m> -0.23394 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- CLOCK -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/clock/clock.xml</path>
+    <offsets>
+      <x-m> -0.003 </x-m>
+      <y-m>  0.183 </y-m>
+      <z-m>  0.095 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- VSI -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m>  0.112 </y-m>
+      <z-m>  0.095 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- AIRSPEED -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/airspeed/airspeed.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m> -0.107 </y-m>
+      <z-m>  0.004 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- AI -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.004 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- TURN -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/turn/turn.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m>  0.217 </y-m>
+      <z-m>  0.004 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- ALTIMETER -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m> -0.107 </y-m>
+      <z-m> -0.107 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- COMPASS -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/compass/compass.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.107 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- FUEL -->
+  <model>
+    <path>Aircraft/F9F-Panther/Models/Interior/Panel/Instruments/fuel/fuel.xml</path>
+    <offsets>
+      <x-m> -0.002 </x-m>
+      <y-m>  0.107 </y-m>
+      <z-m> -0.107 </z-m>
+    </offsets>
+  </model>
+  
+</PropertyList>

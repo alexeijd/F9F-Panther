@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Grumman F9F Panther : 2014 BARANGER Emmanuel
+
+     source              : hhttp://en.wikipedia.org/wiki/Grumman_F9F_Panther
+
+     Wingspan            :   38 ft 0 in ( 11.6 m   )
+     Lenght              :   37 ft 5 in ( 11.3 m   )
+     Height              :   11 ft 4 in (  3.8 m   )
+     Empty mass          : 9303 lb      ( 4220 kg  )
+     Engines             : 1 Pratt & Whitney J42-P-6/P-8 turbojet 5950 lbf with water injection
+     Maximum speed       :  500 kt      ( 925 km/h )
+-->
+
+<airplane mass="9303">
+
+  <approach speed="120" aoa="6" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+    <control-setting axis="/controls/flight/flaps" value="1"/>
+    <control-setting axis="/controls/gear/gear-down" value="1"/>
+  </approach>
+
+  <cruise speed="440" alt="25000" fuel="0.7">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+    <control-setting axis="/controls/flight/flaps" value="0"/>
+    <control-setting axis="/controls/gear/gear-down" value="0"/>
+  </cruise>
+
+  <cockpit x="2.08535" y="0" z="0.26133"/>
+
+  <!-- Fuselage with engine on top -->
+  <fuselage ax="5.64184" ay=" 0.00000" az="-0.76382" bx=" 1.65561" by=" 0.00000" bz="-0.75306" width="1.500" taper="0.2" midpoint="1.00"/>
+  <fuselage ax="1.65561" ay=" 0.00000" az="-0.75306" bx="-4.32373" by=" 0.00000" bz="-0.73693" width="1.500" taper="0.4" midpoint="0.00"/>
+
+  <!-- Fuel tank -->  
+  <fuselage ax="1.17080" ay=" 5.46927" az="-0.50586" bx="-1.54386" by=" 5.46927" bz="-0.50586" width="0.730" taper="0.1" midpoint="0.50"/>
+  <fuselage ax="1.17080" ay="-5.46927" az="-0.50586" bx="-1.54386" by="-5.46927" bz="-0.50586" width="0.730" taper="0.1" midpoint="0.50"/>
+  
+  <wing x="-0.48485" y="0.467" z="-0.83742"
+        chord="3.3" 
+        length="5"
+        taper="0.40"
+        sweep="-3"
+        dihedral="4"
+        camber="0.003">
+        <stall aoa="20" width="1" peak="1.5"/>
+        <flap0 start="0.21" end="0.61" lift="1.3" drag="1.5"/>
+        <flap1 start="0.61" end="0.94" lift="1.3" drag="1.8"/>
+        <spoiler start="0.21" end="0.94"  lift="0.8" drag="6"/>
+
+        <control-input axis="/controls/flight/flaps" control="FLAP0" invert="true"/> 
+        <control-input axis="/controls/flight/aileron" control="FLAP1" square="true" split="true"/> 
+        <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
+        <control-input control="SPOILER" axis="/controls/flight/spoilers"/>
+        
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
+        <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
+        <control-output control="SPOILER" prop="/surface-positions/spoiler-pos-norm" invert="true" />
+        
+        <control-speed control="FLAP0" transition-time="3"/>
+        <control-speed control="SPOILER" transition-time="3"/>
+   </wing>
+
+   <hstab x="-4.80594" y="0" z="0.83438"
+         chord="1.443"
+         length="2.708"
+         taper="0.46"
+         sweep="8">
+         <stall aoa="18" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
+
+         <control-input axis="/controls/flight/elevator" square="false" control="FLAP0" />
+         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-4.04056" y="0" z="-0.13577"
+         chord="3.228" 
+         length="2.55" 
+         taper="0.3"
+         sweep="22">
+         <stall aoa="16" width="1" peak="1.5"/>
+         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+
+         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+  </vstab>
+
+  <!-- Engines   source            : http://en.wikipedia.org/wiki/Pratt_%26_Whitney_J42
+
+                 name              : Rolls-Royce Nene
+                 type              : Centrifugal compressor turbojet
+                 power cruise      : 5000 lbf at 12300 rpm at sea level for takeoff
+                 weight            : 1600 lb  ( 725.7 kg )
+  -->
+  <jet x="1" y="0" z="-0.73693"
+       mass="1600" 
+       thrust="5000"
+       n1-idle="30" 
+       n1-max="90" 
+       n2-idle="35" 
+       n2-max="95"
+       egt="850" 
+       tsfc="1.39">
+       <actionpt x="-4.32373" y="0" z="-0.73693"/>
+       <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+  </jet>
+
+  <!-- Undercarriage -->
+  <!-- nose -->
+  <gear x="3.42912" y="0" z="-2.33995"
+        compression="0.3"
+        spring="1"
+        damp="2"
+        retract-time="7">
+        <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="-0.1" dst1="0.1"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- left main -->
+  <gear x="-0.13289" y="1.24887" z="-2.07067"
+        compression="0.3"
+        spring="1"
+        damp="2"
+        retract-time="7">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- right main -->
+  <gear x="-0.13289" y="-1.24887" z="-2.07067"
+        compression="0.3"
+        spring="1"
+        damp="2"
+        retract-time="7">
+        <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- tail -->
+  <gear x="-3.89143" y="0" z="-1.52253"
+        compression="0.1"
+        spring="1"
+        damp="2" 
+        retract-time="7">
+        <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
+
+        <control-output control="EXTEND" prop="/gear/gear[3]/position-norm"/>
+
+        <control-speed control="EXTEND" transition-time="7"/>
+  </gear>
+
+  <!-- Internal tanks 2*280 liter wings -->
+  <tank x="-0.18653" y=" 5.46927" z="-0.50586" jet="true" capacity="1250"/>
+  <tank x="-0.18653" y="-5.46927" z="-0.50586" jet="true" capacity="1250"/>
+
+  <!-- Crosse d'appontage -->
+  <hook x="-4.23616" y="0" z="-1.09718"
+        length="1.932"
+        down-angle="22"
+        up-angle="-5">
+        <control-input axis="/controls/gear/tailhook" control="HEXTEND"/>
+        <control-speed control="HEXTEND" transition-time="4"/>
+  </hook>
+
+  <!-- Launch-bar --> 
+  <launchbar x="1.49757" y="0" z="-1.68789" length="0.2">
+    <control-input axis="/controls/gear/launchbar" control="LEXTEND"/>
+    <control-speed control="LEXTEND" transition-time="1"/>
+  </launchbar>
+  
+  <!-- displacment mass -->
+  <ballast x=" 5" y="0" z="-1" mass=" 1400"/>
+  <ballast x="-4" y="0" z=" 1" mass="-1000"/>
+  
+</airplane>

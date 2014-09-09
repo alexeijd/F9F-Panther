@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <title>Grumman F9F Panther</title>
+  <line>______________________________________________</line>
+  <key>
+    <name>d</name>
+    <desc>Open/Close canopy</desc>
+  </key>
+  <key>
+    <name>f</name>
+    <desc>Wing Fold up/down</desc>
+  </key>
+  <key>
+    <name>o/O</name>
+    <desc>Hook up/down</desc>
+  </key>
+  <key>
+    <name>e</name>
+    <desc>Guns fire</desc>
+  </key>
+  
+</PropertyList>
