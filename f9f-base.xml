@@ -68,6 +68,8 @@
 
   </sim>
 
+  <input include="Systems/f9f-keyboard.xml"/>
+  
   <engines>
     <engine n="0">
       <engine-num type="int">0</engine-num>
@@ -95,10 +97,6 @@
     </gear>
   </controls>
 
-  <input>
-    <keyboard include="Systems/f9f-keyboard.xml"/>
-  </input>
- 
   <nasal>
     <doors>
       <file>Aircraft/F9F-Panther/Nasal/doors.nas</file>
