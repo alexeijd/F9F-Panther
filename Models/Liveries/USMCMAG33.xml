@@ -6,8 +6,8 @@
 
     <model>
       <livery>
-        <name type="string">Default - US Navy VMFT-20</name>
-        <texture>texture.png</texture>
+        <name type="string">USMC, MAG-33</name>
+        <texture>Liveries/2048x2048/USMCMAG33.png</texture>
         <specular>
           <red>   0.05 </red>
           <green> 0.05 </green>
