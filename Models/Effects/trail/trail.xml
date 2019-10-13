@@ -19,8 +19,8 @@
         </greater-than>
         <greater-than>
           <!-- /position/altitude-ft -->
-          <property>sim/multiplay/generic/float[3]</property>
-          <value>3000</value>
+	  <property>environment/contrail</property>
+          <value>0</value>
         </greater-than>
       </and>
     </condition>
@@ -80,7 +80,7 @@
           <alpha><value> 1.0 </value></alpha>
         </color>
         <size>
-          <value>4</value>
+          <value>10</value>
         </size>
       </end>
 
@@ -88,8 +88,8 @@
         <value>10</value>
       </life-sec>
         
-      <mass-kg>  0.5 </mass-kg>
-      <radius-m> 0.5 </radius-m>
+      <mass-kg>  0.1 </mass-kg>
+      <radius-m> 1 </radius-m>
     </particle>
 
     <program>

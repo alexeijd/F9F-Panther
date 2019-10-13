@@ -1,0 +1,34 @@
+Enrogues ToDo list:
+
+ - FDM based on SAC - done
+ - retune drag bodies & retune FDM top speed - done
+ - contrail based on environment/contrail - done
+ - fuel tanks - done
+ - fuel feed script - done
+ - water injection - done
+ - fix keyboard xml - done
+ - fix sound paths - done
+ - tone down smoke & tyre particle effects - done 
+ - engine management script - done, also does heat blur var for shader
+ - engine exhaust based on als shader from alouette III - done
+ - fuselage model shader with reflection per livery - done
+ - exterior glass shader - current one seems ok on intel graphics
+ - interior glass shader - done (with rain)
+ - exhaust sound - done
+ - tags - done
+ - splash screens
+ - payloads & weights
+ - weapons (all unguided)
+ - help text including carrier mto & landing speeds
+
+
+3d stuff missing:
+
+ - wing root flaps (under the fuselage)
+ - engine pressure inlets on top of fuselage
+ - drooping leading edge
+
+Other:
+
+ - really needs rpm gauge 
+ - needs better instruments

@@ -12,6 +12,10 @@
         <property>/engines/engine[0]/running</property>
       </condition>
       <volume>
+        <property>/sim/sound/f9f/vol_exterior</property>
+        <factor>1</factor>
+      </volume>
+      <volume>
         <property>/engines/engine[0]/prop-thrust</property>
         <factor type="double">0.00013</factor>
       </volume>
@@ -43,44 +47,49 @@
       <max-dist>1000</max-dist>
     </engine>
 
-    <engine>
-      <name>engine</name>
-      <path>Sounds/jet.wav</path>
+   <engine-wake>
+      <name>Engine Wake</name>
       <mode>looped</mode>
+      <path>Sounds/exhaust_loop.wav</path>
       <condition>
-        <property>/engines/engine[1]/running</property>
+        <!-- sim/crashed -->
+        <not><property>sim/multiplay/generic/bool[0]</property></not>
       </condition>
+      <position>
+        <x>0.59</x>
+        <y>0.001</y>
+        <z>-0.46</z>
+      </position>
+      <orientation>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+        <inner-angle>60.0</inner-angle>
+        <outer-angle>180.0</outer-angle>
+        <outer-gain>0.2</outer-gain>
+      </orientation>
       <volume>
-        <property>/engines/engine[1]/prop-thrust</property>
-        <factor type="double">0.00013</factor>
+        <property>/sim/sound/f9f/vol_exterior</property>
+        <factor>1</factor>
       </volume>
-      <pitch>
-        <property>/engines/engine[1]/n1</property>
-        <factor>0.2</factor>
-      </pitch>
-      <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-    </engine>
+      <volume>
+        <property>engines/engine/rpm</property>
+        <factor>0.1</factor>
+        <offset>-7.0</offset>
+        <min>0.00</min>
+        <max>10</max>
+      </volume>
+      <volume>
+        <property>velocities/groundspeed-kt</property>
+        <factor>0.0175</factor>
+        <offset>0.25</offset>
+        <min>0.00</min>
+        <max>1.1</max>
+      </volume>
+      <reference-dist>80</reference-dist>
+      <max-dist>6000</max-dist>
+    </engine-wake>
 
-    <engine>
-      <name>whine</name>
-      <path>Sounds/turbojet_fan.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <property>/engines/engine[1]/running</property>
-      </condition>
-      <volume>
-        <property>/engines/engine[1]/n2</property>
-        <factor type="double">0.0025</factor>
-      </volume>
-      <pitch>
-        <property>/engines/engine[1]/n2</property>
-        <factor>0.02</factor>
-        <offset>-0.1</offset>
-      </pitch>
-      <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-    </engine>
 
     <rumble>
       <name>rumble</name>
@@ -443,7 +452,7 @@
     <gun>
       <name>Gun left 1</name>
       <mode>looped</mode>
-      <path>Aircraft/Bell-P-59/Sounds/gunfire_1.wav</path>
+      <path>Aircraft/F9F-Panther/Sounds/gunfire_1.wav</path>
       <condition>
         <and>
           <property>controls/armament/trigger</property>
@@ -462,7 +471,7 @@
     <gun>
       <name>Gun left 2</name>
       <mode>looped</mode>
-      <path>Aircraft/Bell-P-59/Sounds/gunfire_1.wav</path>
+      <path>Aircraft/F9F-Panther/Sounds/gunfire_1.wav</path>
       <condition>
         <and>
           <property>controls/armament/trigger</property>
@@ -481,7 +490,7 @@
     <gun>
       <name>Gun left 3</name>
       <mode>looped</mode>
-      <path>Aircraft/Bell-P-59/Sounds/gunfire_1.wav</path>
+      <path>Aircraft/F9F-Panther/Sounds/gunfire_1.wav</path>
       <condition>
         <and>
           <property>controls/armament/trigger</property>
@@ -500,7 +509,7 @@
     <gun>
       <name>Canon</name>
       <mode>looped</mode>
-      <path>Aircraft/Bell-P-59/Sounds/gunfire_1.wav</path>
+      <path>Aircraft/F9F-Panther/Sounds/gunfire_1.wav</path>
       <condition>
         <and>
           <property>controls/armament/trigger</property>

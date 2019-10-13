@@ -1,121 +1,195 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- Grumman F9F Panther : 2014 BARANGER Emmanuel
+<!-- Grumman F9F-5 Panther : 2014 BARANGER Emmanuel, updates 2018 EnRogue
 
-     source              : hhttp://en.wikipedia.org/wiki/Grumman_F9F_Panther
+     source              :   Standard Aircraft Characteristics http://www.alternatewars.com/SAC/F-9E_Panther_SAC_-_1_July_1967.pdf
+     
+     wing area           :   250 sq ft
+     span                :   38 ft 0 in
+     length              :   38 ft 10 in
+     height              :   12 ft 3 in
+     tread               :   8 ft 3 in
+     M.A.C.              :   7 ft 5 in
+     power off stall spd :   96.9 kts  landing weights & full flaps, 114.2 kts take off settings & weight 
+     approach spd        :   116.3 kts (1.2 * power off stall)
+     cruise spd          :   418 kts @ 41000 ft
+     max speed           :   503 kts @ 5000 ft @ NORMAL power
+     time to 30000 ft    :   8 mins, tip tanks only with full internal fuel
+     landing weight      :   12819 lb (includes 1071 lb fuel)
+     empty weight        :   10147 lb
+     basic weight        :   11013 lb
+     max t.o. catapult   :   20600 lb
+     max t.o. runway     :   21245 lb
+     ammunition wt       :   471 lb
+     fuel (fuselage)     :   763 US Gal in 2 tanks (4578 lb)
+     fuel (wings)        :   240 US Gal in tip tanks total (1440 lb)
+     
+     Engine              :   Pratt & Whitney J-48-P-6
+     weight              :   2080 lb
+     T.S.F.C             :   1.14
+     Take off            :   7000 lb, 11000 rpm (water injection) @ S.L.
+                         :   6250 lb, 11000 rpm (dry) @ S.L.
+     Military            :   6250 lb, 11000 rpm @ S.L.
+     Normal              :   5000 lb  10450 rpm @ S.L 
 
-     Wingspan            :   38 ft 0 in ( 11.6 m   )
-     Lenght              :   37 ft 5 in ( 11.3 m   )
-     Height              :   11 ft 4 in (  3.8 m   )
-     Empty mass          : 9303 lb      ( 4220 kg  )
-     Engines             : 1 Pratt & Whitney J42-P-6/P-8 turbojet 5950 lbf with water injection
-     Maximum speed       :  500 kt      ( 925 km/h )
+     Notes               :   The F9F-5/F9E is the only SAC available, and the 3d model actually appears to be the F9F-5 with the higher tail
+			 :   With current engine settings, normal power is ~0.8, so max speed has been roughly tuned with cruise settings
+
+                         :   Drag divergence mach number should be about m=0.74, cruise is m=0.73 so I have setup a linear drag 
+			 :   increase from m=0.74 to m=1.0 via an invisible spoiler and shifted the dive brakes to dedicated surfaces
+
+			 :   Approach AoA is calculated from 4.5 degree sit + 3.5 degree standard carrier glideslope, approach fuel is calculated
+			 :   so that weight matches standard landing weight - it's hard to stick a carrier landing with it as it's under powered
+			 :   & the throttle response is slow
+
+                         :   Airfoil, according to http://www.aerofiles.com/airfoils.html root is NACA64A014, tip is NACA64A012
+                         :   according to SAC is NACA6401C, in any case these are symmetric airfoils, stall aoa & width are approximate - need to look at xfoil
+
 -->
 
-<airplane mass="9303">
+<airplane mass="11013" version="YASIM_VERSION_CURRENT" mtow-lbs="21245">
 
-  <approach speed="120" aoa="6" fuel="0.3">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
+  <approach speed="116.3" aoa="8" fuel="0.3">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.6"/>
     <control-setting axis="/controls/flight/flaps" value="1"/>
     <control-setting axis="/controls/gear/gear-down" value="1"/>
+    <control-setting axis="/controls/flight/spoilers" value="0.0"/>
   </approach>
 
-  <cruise speed="440" alt="25000" fuel="0.7">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value="1"/>
+  <cruise speed="418" alt="41000" fuel="0.8">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.64"/>
     <control-setting axis="/controls/flight/flaps" value="0"/>
     <control-setting axis="/controls/gear/gear-down" value="0"/>
+    <control-setting axis="/controls/flight/elevator-trim" value="-0.235"/>
+    <control-setting axis="/velocities/mach" value="0.73"/>
   </cruise>
 
   <cockpit x="2.08535" y="0" z="0.26133"/>
 
   <!-- Fuselage with engine on top -->
   <fuselage ax="5.64184" ay=" 0.00000" az="-0.76382" bx=" 1.65561" by=" 0.00000" bz="-0.75306" width="1.500" taper="0.2" midpoint="1.00"/>
-  <fuselage ax="1.65561" ay=" 0.00000" az="-0.75306" bx="-4.32373" by=" 0.00000" bz="-0.73693" width="1.500" taper="0.4" midpoint="0.00"/>
+  <fuselage ax="1.65561" ay=" 0.00000" az="-0.75306" bx="-4.32373" by=" 0.00000" bz="-0.73693" cx="0.01" width="1.500" taper="0.4" midpoint="0.00"/>
 
   <!-- Fuel tank -->  
-  <fuselage ax="1.17080" ay=" 5.46927" az="-0.50586" bx="-1.54386" by=" 5.46927" bz="-0.50586" width="0.730" taper="0.1" midpoint="0.50"/>
-  <fuselage ax="1.17080" ay="-5.46927" az="-0.50586" bx="-1.54386" by="-5.46927" bz="-0.50586" width="0.730" taper="0.1" midpoint="0.50"/>
+  <fuselage ax="1.17080" ay=" 5.46927" az="-0.50586" bx="-1.54386" by=" 5.46927" bz="-0.50586" width="0.60" taper="0.1" midpoint="0.50"/>
+  <fuselage ax="1.17080" ay="-5.46927" az="-0.50586" bx="-1.54386" by="-5.46927" bz="-0.50586" width="0.60" taper="0.1" midpoint="0.50"/>
   
-  <wing x="-0.48485" y="0.467" z="-0.83742"
+  <wing x="-0.48485" y="0.0" z="-0.95"
         chord="3.3" 
-        length="5"
+        length="5.5"
         taper="0.40"
         sweep="-3"
-        dihedral="4"
-        camber="0.003">
-        <stall aoa="20" width="1" peak="1.5"/>
-        <flap0 start="0.21" end="0.61" lift="1.3" drag="1.5"/>
-        <flap1 start="0.61" end="0.94" lift="1.3" drag="1.8"/>
-        <spoiler start="0.21" end="0.94"  lift="0.8" drag="6"/>
+	dihedral="4"
+	incidence="0"
+	camber="0.06"> 
+	<!-- camber needs research - airfoil in NACA 64A series, possibly 64A014 root to 64A012 tip, both are symmetrical -->
+	<!-- camber has just been tweaked to push drag/lift numbers in the right direction -->
+        <stall aoa="12" width="5" peak="1.5"/>
+        <!-- under wingroot flaps are essentially speedbrakes used for landing so more drag than lift-->
+        <flap0 start="0.1" end="0.63" lift="1.5" drag="2.0"/>
+        <flap1 start="0.63" end="0.94" lift="1.3" drag="1.6"/>
+        <!-- utilise this to model wave drag -->
+        <spoiler start="0.21" end="0.94"  lift="1.0" drag="6"/>
+        <!-- this is really a movable/dropping leading edge - it should really increase lift/camber -->
+        <slat start="0" end="0.94" aoa="5" drag="1.1"/>
 
-        <control-input axis="/controls/flight/flaps" control="FLAP0" invert="true"/> 
-        <control-input axis="/controls/flight/aileron" control="FLAP1" square="true" split="true"/> 
+        <control-input axis="/controls/flight/flaps" control="FLAP0" /> 
+        <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/> 
         <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
-        <control-input control="SPOILER" axis="/controls/flight/spoilers"/>
+        <control-input axis="/controls/flight/flaps" control="SLAT" />
+        <!-- configureed to raise drag just above cruise -->
+        <control-input axis="/velocities/mach" control="SPOILER" src0="0.74" src1="1.0" dst0="0.0" dst1="1.0"/>
         
         <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="SLAT" prop="/surface-positions/slat-pos-norm"/>
         <control-output control="FLAP1" side="left" prop="/surface-positions/left-aileron-pos-norm"/>
         <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
-        <control-output control="SPOILER" prop="/surface-positions/spoiler-pos-norm" invert="true" />
         
-        <control-speed control="FLAP0" transition-time="3"/>
-        <control-speed control="SPOILER" transition-time="3"/>
+        <control-speed control="FLAP0" transition-time="10"/>
+        <control-speed control="FLAP1" transition-time="0.5"/>
    </wing>
 
    <hstab x="-4.80594" y="0" z="0.83438"
-         chord="1.443"
-         length="2.708"
-         taper="0.46"
-         sweep="8">
-         <stall aoa="18" width="1" peak="1.5"/>
-         <flap0 start="0" end="1" lift="1.4" drag="1.1"/>
+        chord="1.443"
+        length="2.708"
+        taper="0.46"
+        sweep="8">
+        <stall aoa="18" width="1" peak="1.5"/>
+        <flap0 start="0" end="1" lift="1.9" drag="2.0"/>
 
-         <control-input axis="/controls/flight/elevator" square="false" control="FLAP0" />
-         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
+        <control-input axis="/controls/flight/elevator" square="false" control="FLAP0" />
+        <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
 
-         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+        <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+        <control-speed control="FLAP0" transition-time="0.5"/>
   </hstab>
 
   <vstab x="-4.04056" y="0" z="-0.13577"
-         chord="3.228" 
-         length="2.55" 
-         taper="0.3"
-         sweep="22">
-         <stall aoa="16" width="1" peak="1.5"/>
-         <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
+        chord="3.228" 
+        length="2.55" 
+        taper="0.3"
+        sweep="22">
+        <stall aoa="16" width="1" peak="1.5"/>
+        <flap0 start="0" end="1" lift="1.2" drag="1.1"/>
 
-         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
-         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
+        <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
+        <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
 
-         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+        <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
+        <control-speed control="FLAP0" transition-time="0.5"/>
   </vstab>
 
-  <!-- Engines   source            : http://en.wikipedia.org/wiki/Pratt_%26_Whitney_J42
+  <!-- seperate speedbrakes -->
+  <mstab x="1.9" y="0.0" z="-1.5"
+        chord="0.6"
+        length="0.6"
+        taper="1"
+        dihedral="20"
+        sweep="0">
+        <stall aoa="45" width="8" peak="1.5"/>
+        <spoiler start="0" end="1" lift="1.1" drag="90"/>
+        <control-input control="SPOILER" axis="/controls/flight/spoilers"/>
+        <control-output control="SPOILER" prop="/surface-positions/spoiler-pos-norm" invert="true"/>
+        <control-speed control="SPOILER" transition-time="3"/>
+  </mstab>
+  <!-- Engines   source            : http://en.wikipedia.org/wiki/Pratt_%26_Whitney_J48
 
-                 name              : Rolls-Royce Nene
+                 name              : J-48-P-6 Rolls-Royce Tay
                  type              : Centrifugal compressor turbojet
-                 power cruise      : 5000 lbf at 12300 rpm at sea level for takeoff
-                 weight            : 1600 lb  ( 725.7 kg )
+                 power cruise      : 7000 lbf at 11000 rpm at sea level for takeoff with water injection
+                 weight            : 2080 lb  
+                 notes             : water injection modelled with reheat & small adjustment to atsfc, needs nasal to turn on
+                                   : I haven't touched the n1/n2/egt settings as I don't have a source
+                                   : exhaust speed tuned for drag number reasons - seting it high means it doesn't lose
+                                   : as much thrust at higher speeds
+                                   : engine response needs to be tuned as centrifugal engines are v slow to respond
   -->
   <jet x="1" y="0" z="-0.73693"
-       mass="1600" 
-       thrust="5000"
+       mass="2080" 
+       thrust="6250"
+       afterburner="7000"
        n1-idle="30" 
        n1-max="90" 
        n2-idle="35" 
        n2-max="95"
        egt="850" 
-       tsfc="1.39">
+       exhaust-speed="2600"
+       spool-time="5"
+       atsfc="1.2"
+       tsfc="1.14">
        <actionpt x="-4.32373" y="0" z="-0.73693"/>
        <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+       <control-input axis="/controls/engines/engine[0]/water-injection" control="REHEAT"/>
+       <control-output control="REHEAT" prop="engines/engine[0]/afterburner" />
   </jet>
 
-  <!-- Undercarriage -->
+  <!-- Undercarriage - stiction+stiction-abs settings added -->
   <!-- nose -->
   <gear x="3.42912" y="0" z="-2.33995"
         compression="0.3"
         spring="1"
         damp="2"
+	stiction="0"
         retract-time="7">
         <control-input axis="/controls/flight/rudder" control="STEER" src0="-1.0" src1="1.0" dst0="-0.1" dst1="0.1"/>
         <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -130,6 +204,8 @@
         compression="0.3"
         spring="1"
         damp="2"
+	stiction="1"
+	stiction-abs="1"
         retract-time="7">
         <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
@@ -145,6 +221,8 @@
         compression="0.3"
         spring="1"
         damp="2"
+	stiction="1"
+	stiction-abs="1"
         retract-time="7">
         <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
@@ -160,6 +238,7 @@
         compression="0.1"
         spring="1"
         damp="2" 
+	stiction="1"
         retract-time="7">
         <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
 
@@ -168,9 +247,18 @@
         <control-speed control="EXTEND" transition-time="7"/>
   </gear>
 
-  <!-- Internal tanks 2*280 liter wings -->
-  <tank x="-0.18653" y=" 5.46927" z="-0.50586" jet="true" capacity="1250"/>
-  <tank x="-0.18653" y="-5.46927" z="-0.50586" jet="true" capacity="1250"/>
+  <!-- Collector tank for inverted flying (guess as to size, inverted flying is limited to 10 secs by oil tank) -->
+  <tank x="0.5" y="0" z="-0.75" jet="true" capacity="36"/>
+
+  <!-- Forward fuselage fuel tank 527 US gal -->
+  <tank x="0.5" y="0" z="-0.75" jet="true" capacity="3162"/>
+
+  <!-- Rear fuselage fuel tank 236 US gal - from F9F-8 diagrams, forward tank is larger on the Cougar though -->
+  <tank x="-0.3" y="0" z="-0.65" jet="true" capacity="1416"/>
+
+  <!-- Wingtip tanks 2*120 US gal  -->
+  <tank x="0.179" y=" 5.46927" z="-0.50586" jet="true" capacity="720"/>
+  <tank x="0.179" y="-5.46927" z="-0.50586" jet="true" capacity="720"/>
 
   <!-- Crosse d'appontage -->
   <hook x="-4.23616" y="0" z="-1.09718"
@@ -187,8 +275,8 @@
     <control-speed control="LEXTEND" transition-time="1"/>
   </launchbar>
   
-  <!-- displacment mass -->
-  <ballast x=" 5" y="0" z="-1" mass=" 1400"/>
-  <ballast x="-4" y="0" z=" 1" mass="-1000"/>
+  <!-- displacment mass - tuned for 27% MAC CG -->
+  <ballast x=" 5" y="0" z="-0.8" mass="1600"/>
+  <!--ballast x="-4" y="0" z=" 1" mass="-1000"/-->
   
 </airplane>

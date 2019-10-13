@@ -4,15 +4,24 @@
 
   <sim  include="Systems/views.xml">
  
-    <author>Emmanuel BARANGER (3D/FDM)</author>
-    <status>alpha</status>
+    <author>Emmanuel BARANGER (3D/FDM), EnRogue (updates/fixes), N-SCOT (Liveries) </author>
+    <status>beta</status>
   
-    <fuel-fraction>1.0</fuel-fraction>
+    <fuel-fraction>0.5</fuel-fraction>
   
     <sound>
       <audible>true</audible>
       <path>Aircraft/F9F-Panther/Sounds/f9f-sound.xml</path>
     </sound>
+
+    <systems>
+      <autopilot>
+        <path>Aircraft/F9F-Panther/Systems/autopilot.xml</path>
+      </autopilot>
+      <autopilot n="101">
+        <path>Aircraft/F9F-Panther/Systems/glass-rain.xml</path>
+      </autopilot>
+    </systems>
 
     <startup>
      <splash-texture>Aircraft/F9F-Panther/f9f-splash.png</splash-texture>
@@ -24,6 +33,10 @@
         <file type="string">default</file>
       </livery>
     </model>
+
+    <rendering>
+      <refl_correction type="string">-0.42</refl_correction>
+    </rendering>
 
     <submodels> 
       <serviceable type="bool">true</serviceable>
@@ -57,7 +70,8 @@
         <float n="11" alias="/gear/gear[2]/rollspeed-ms"/>
         <float n="12"  alias="/controls/engines/engine[0]/throttle"/>
         <!-- For Bombable -->
-        <int type="int" n="10" alias="controls/armament/trigger">0</int>
+        <int type="int" n="10" alias="/controls/armament/trigger">0</int>
+        <bool type="bool" n="0" alias="/sim/crashed">0</bool>
         <string n="9" type="string" />
       </generic>
     </multiplay>
@@ -81,7 +95,23 @@
     <fuel>
       <tank n="0">
         <tank-num type="int">0</tank-num>
-        <level-gal_us archive="y">2070</level-gal_us>
+        <level-gal_us archive="y">6</level-gal_us>
+      </tank>
+      <tank n="1">
+        <tank-num type="int">0</tank-num>
+        <level-gal_us archive="y">527</level-gal_us>
+      </tank>
+      <tank n="2">
+        <tank-num type="int">1</tank-num>
+        <level-gal_us archive="y">236</level-gal_us>
+      </tank>
+      <tank n="3">
+        <tank-num type="int">0</tank-num>
+        <level-gal_us archive="y">120</level-gal_us>
+      </tank>
+      <tank n="4">
+        <tank-num type="int">0</tank-num>
+        <level-gal_us archive="y">120</level-gal_us>
       </tank>
     </fuel>
   </consumables>
@@ -104,11 +134,17 @@
     <f9f>
       <file>Aircraft/F9F-Panther/Nasal/liveries.nas</file>
       <file>Aircraft/F9F-Panther/Nasal/light.nas</file>
+      <file>Aircraft/F9F-Panther/Nasal/systems.nas</file>
     </f9f>
     <guns>
       <file>Aircraft/F9F-Panther/Nasal/weapons.nas</file>
       <file>Aircraft/F9F-Panther/Nasal/revi.nas</file>
     </guns>
+    <engine>
+      <file>Aircraft/F9F-Panther/Nasal/water-injection.nas</file>
+      <file>Aircraft/F9F-Panther/Nasal/FuelSystem.nas</file>
+      <file>Aircraft/F9F-Panther/Nasal/engines.nas</file>
+    </engine>
   </nasal>
 
 </PropertyList>

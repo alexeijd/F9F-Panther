@@ -11,10 +11,27 @@
     
     <rating>
       <FDM type="int">     2 </FDM>
-      <systems type="int"> 0 </systems>
+      <systems type="int"> 1 </systems>
       <cockpit type="int"> 1 </cockpit>
       <model type="int">   4 </model>
     </rating>
+
+    <tags>
+      <tag>fighter</tag>
+      <tag>bomber</tag>
+      <tag>reconnaissance</tag>
+      <tag>1940s</tag>
+      <tag>1950s</tag>
+      <tag>1960s</tag>
+      <tag>coldwar</tag>
+      <tag>jet</tag>
+      <tag>1-engine</tag>
+      <tag>grumman</tag>
+      <tag>carrier-hook</tag>
+      <tag>wing-fold</tag>
+      <tag>combat</tag>
+      <tag>rembrandt</tag>
+    </tags>
 
   </sim>
 

@@ -20,5 +20,17 @@
     <name>e</name>
     <desc>Guns fire</desc>
   </key>
+  <key>
+    <name>ctrl-f</name>
+    <desc>water injection (on ground, 60 secs only)</desc>
+  </key>
+  <key>
+    <name>L</name>
+    <desc>Launchbar</desc>
+  </key>
+  <key>
+    <name>C</name>
+    <desc>Catapault Launch</desc>
+  </key>
   
 </PropertyList>

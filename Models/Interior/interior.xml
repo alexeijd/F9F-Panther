@@ -19,7 +19,7 @@
 
   <!-- working for Rembrandt -->
   <effect>
-    <inherits-from>Aircraft/F9F-Panther/Models/Effects/Glass/glass</inherits-from>
+    <inherits-from>Effects/glass</inherits-from>
     <object-name>intverriere</object-name>
     <object-name>intvitres</object-name>
   </effect>

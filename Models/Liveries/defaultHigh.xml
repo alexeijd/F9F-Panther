@@ -15,6 +15,10 @@
         </specular>
       </livery>
     </model>
+    <rendering>
+      <refl_correction type="string">-0.32</refl_correction>
+    </rendering>
+
 
   </sim>
 

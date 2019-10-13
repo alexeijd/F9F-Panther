@@ -15,6 +15,9 @@
         </specular>
       </livery>
     </model>
+    <rendering>
+    </rendering>
+
 
   </sim>
 
